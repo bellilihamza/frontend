@@ -1,0 +1,8 @@
+export class User{
+    username!:string ;
+    password !: string ;
+    roles!:string[];
+    enabled!: boolean
+
+    email!: string ;
+    }

@@ -1,0 +1,58 @@
+<div class="container">
+    <div>
+      <h2>Ajouter une Moto :</h2>
+    </div>
+    <form>
+      <!-- Champ caché pour l'ID de la moto -->
+      <div hidden class="col-sm-2 col-md-2 col-lg-2">
+        <label>ID Moto</label>
+        <input type="text" [(ngModel)]="newMoto.idMotot" name="idMoto" class="form-control">
+      </div>
+  
+      <!-- Nom de la moto -->
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Nom Moto</label>
+        <input type="text" [(ngModel)]="newMoto.nomMoto" name="nomMoto" class="form-control">
+      </div>
+  
+      <!-- Prix de la moto -->
+      <div class="col-sm-2 col-md-2 col-lg-2">
+        <label>Prix Moto</label>
+        <input type="number" [(ngModel)]="newMoto.prixMoto" name="prixMoto" class="form-control">
+      </div>
+  
+      <!-- Date de création de la moto -->
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Date création</label>
+        <input type="date" [(ngModel)]="newMoto.dateCreation" name="dateCreation" class="form-control">
+      </div>
+  
+      <!-- Type de moto (sélection dans la liste des types) -->
+      <div class="col-sm-4 col-md-4 col-lg-4">
+        <label>Type de Moto</label>
+        <select class="form-control form-control-lg" id="idType" name="idType"
+          [(ngModel)]="newIdType">
+          <option *ngFor="let type of types" [value]="type.idtype">
+            {{type.nomType}}
+          </option>
+        </select>
+      </div>
+      <div class="col-sm-16 col-md-16 col-lg-16">
+        <label class="mb-2">Image :</label>
+        <input type="file" (change)="onImageUpload($event)"
+        name="logo" class="form-control">
+        </div>
+      <div class="col-sm-16 col-md-16 col-lg-16">
+        <img [src]="imagePath" class="card-img-top img-fluid rounded-start"
+        style="width: 500px; height: 300px" />
+        </div>
+      <!-- Bouton pour ajouter la moto -->
+      <div class="mt-2">
+        <button type="submit" (click)="addMoto()" class="btn btn-success">Ajouter</button>
+      </div>
+  
+      <!-- Message de succès après l'ajout -->
+      <h2 *ngIf="ajouterAvecSucces">Ajouté avec succès</h2>
+    </form>
+  </div>
+  
